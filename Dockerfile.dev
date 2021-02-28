@@ -1,0 +1,11 @@
+FROM ruby:3.0.0-alpine3.12
+
+RUN apk add bash gcc g++ wget nodejs postgresql-contrib zlib yarn openssl-dev git libcurl libpq make sqlite-dev tzdata mysql-client libxml2 libffi mysql libpq postgresql-dev
+
+WORKDIR /app
+
+COPY ./code /app
+
+RUN bundle install
+
+EXPOSE 3000
